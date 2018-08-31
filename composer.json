@@ -1,0 +1,19 @@
+{
+    "name": "xufei56789/getui",
+    "description": "Laravel 5 Getui Package",
+    "authors": [
+        {
+            "name": "xufei",
+            "email": "568488021@qq.com",
+            "homepage": "https://phpartisan.cn"
+        }
+    ],
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+      "psr-4": {
+        "Earnp\\Getui\\": "src/"
+      }
+    }
+}
