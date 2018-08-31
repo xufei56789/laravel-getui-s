@@ -9,18 +9,18 @@
 # 安装拓展
 1、运行如下代码安装拓展包：
 ```
-composer require "earnp/getui:dev-master"
+composer require "Xufei/getui:dev-master"
 ```
 3.等待下载安装完成，需要在`config/app.php`中注册服务提供者同时注册下相应门面：
 ```php
 'providers' => [
     //........
-    Earnp\Getui\GetuiServiceprovider::class,
+    Xufei\Getui\GetuiServiceprovider::class,
 ],
 
 'aliases' => [
      //..........
-    'Getui'     => Earnp\Getui\Facades\Getui::class,
+    'Getui'     => Xufei\Getui\Facades\Getui::class,
 ],
 ```
 服务注入以后，如果要使用自定义的配置，还可以发布配置文件到config目录：

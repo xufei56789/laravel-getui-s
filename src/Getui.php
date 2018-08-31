@@ -1,10 +1,10 @@
 <?php 
-namespace Earnp\Getui;
+namespace Xufei\Getui;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Config;
-use Earnp\Getui\Libarys\IGtPush;
-use Earnp\Getui\Libarys\IGtBatch;
+use Xufei\Getui\Libarys\IGtPush;
+use Xufei\Getui\Libarys\IGtBatch;
 
 class Getui
 {

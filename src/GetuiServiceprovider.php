@@ -1,5 +1,5 @@
 <?php 
-namespace Earnp\Getui;
+namespace Xufei\Getui;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
