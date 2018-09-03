@@ -74,7 +74,7 @@ class Getui
 
 
     // 单一透传消息
-    public static function pushMessageToSingle($template,$config,$data,$CID){
+    public static function pushMessageToSingle($template,$config,$data,$CID,$apnConf = []){
         $igt = self::IGtPush();
         // 类型参数
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
@@ -89,7 +89,7 @@ class Getui
                 $template = self::IGtNotyPopLoadTemplate($data,$config);
                 break;
             default:
-                $template = self::IGtTransmissionTemplate($data,$config);
+                $template = self::IGtTransmissionTemplate($data,$config,$apnConf = []);
                 break;
         }
 
@@ -117,7 +117,7 @@ class Getui
     }
 
     // 列表推送
-    public static function pushMessageToList($template,$config,$data,$CID){
+    public static function pushMessageToList($template,$config,$data,$CID,$apnConf = []){
         $igt = self::IGtPush();
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
         switch ($template) {
@@ -131,7 +131,7 @@ class Getui
                 $template = self::IGtNotyPopLoadTemplate($data,$config);
                 break;
             default:
-                $template = self::IGtTransmissionTemplate($data,$config);
+                $template = self::IGtTransmissionTemplate($data,$config,$apnConf = []);
                 break;
         }
 
@@ -162,7 +162,7 @@ class Getui
     }
 
     // 群推接口案例
-    public static function pushMessageToApp($template,$config,$data,$choice){
+    public static function pushMessageToApp($template,$config,$data,$choice,$apnConf = []){
         $igt = self::IGtPush();
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
         switch ($template) {
@@ -176,7 +176,7 @@ class Getui
                 $template = self::IGtNotyPopLoadTemplate($data,$config);
                 break;
             default:
-                $template = self::IGtTransmissionTemplate($data,$config);
+                $template = self::IGtTransmissionTemplate($data,$config,$apnConf = []);
                 break;
         }
         //个推信息体
