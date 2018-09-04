@@ -131,7 +131,7 @@ class Getui
                 $template = self::IGtNotyPopLoadTemplate($data,$config);
                 break;
             default:
-                $template = self::IGtTransmissionTemplate($data,$config,$apnConf = []);
+                $template = self::IGtTransmissionTemplate($data,$config,$apnConf);
                 break;
         }
 
