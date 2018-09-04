@@ -222,51 +222,7 @@ class Getui
             $logourl = empty($config["logourl"]) ? "simple" : $config["logourl"];
             $title = empty($config["title"]) ? "测试标题" : $config["title"];
             // 如下有两个推送模版，一个简单一个高级，可以互相切换使用。
-            if($apnConf){
-                if ($config["type"]=="SIMPLE") {
-                    // APN简单推送
-                    $apn = new \IGtAPNPayload();
-                    $alertmsg=new \SimpleAlertMsg();
-                    $alertmsg->alertMsg=$body;
-                    $apn->alertMsg=$alertmsg;
-                    foreach ($apnConf as $key => $value){
-                        $apn->$key = $value;
-                    }
- /*                   $apn->badge=1;
-                    $apn->sound="";
-                    $apn->add_customMsg("payload","payload");
-                    $apn->contentAvailable=1;
-                    $apn->category="ACTIONABLE";*/
-                    $template->set_apnInfo($apn);
-                }
-                else
-                {
-                    // APN高级推送
-                    $apn = new \IGtAPNPayload();
-                    $alertmsg=new \DictionaryAlertMsg();
-                    $alertmsg->body=$body;
-                    $alertmsg->actionLocKey="ActionLockey";
-                    $alertmsg->locKey="LocKey";
-                    $alertmsg->locArgs=array("locargs");
-                    $alertmsg->launchImage="launchimage";
-                    $alertmsg->set_logo=$logo;
-                    $alertmsg->set_logoURL=$logourl;
-                    // iOS8.2 支持
-                    $alertmsg->title=$title;
-                    $alertmsg->titleLocKey="TitleLocKey";
-                    $alertmsg->titleLocArgs=array("TitleLocArg");
-                    foreach ($apnConf as $key => $value){
-                        $apn->$key = $value;
-                    }
-/*                    $apn->alertMsg=$alertmsg;
-                    $apn->badge=1;
-                    $apn->sound="";
-                    $apn->add_customMsg("payload","payload");
-                    $apn->contentAvailable=1;
-                    $apn->category="ACTIONABLE";*/
-                    $template->set_apnInfo($apn);
-                }
-            }else{
+
                 if ($config["type"]=="SIMPLE") {
                     // APN简单推送
                     $apn = new \IGtAPNPayload();
@@ -278,6 +234,11 @@ class Getui
                     $apn->add_customMsg("payload","payload");
                     $apn->contentAvailable=1;
                     $apn->category="ACTIONABLE";
+                    if($apnConf){
+                        foreach ($apnConf as $key => $value){
+                            $apn->$key = $value;
+                        }
+                    }
                     $template->set_apnInfo($apn);
                 }
                 else
@@ -303,9 +264,13 @@ class Getui
                     $apn->add_customMsg("payload","payload");
                     $apn->contentAvailable=1;
                     $apn->category="ACTIONABLE";
+                    if($apnConf){
+                        foreach ($apnConf as $key => $value){
+                            $apn->$key = $value;
+                        }
+                    }
                     $template->set_apnInfo($apn);
                 }
-            }
 
             return $template;
     }
