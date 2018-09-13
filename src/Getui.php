@@ -218,9 +218,15 @@ class Getui
 
             $type = empty($config["type"]) ? "simple" : $config["type"];
             $body = empty($config["body"]) ? "测试内容" : $config["body"];
+	    if (strlen($body)>75){
+            	$body = mb_substr($body,0,75,"utf-8") . '...';
+            }
             $logo = empty($config["logo"]) ? "" : $config["logo"];
             $logourl = empty($config["logourl"]) ? "simple" : $config["logourl"];
             $title = empty($config["title"]) ? "测试标题" : $config["title"];
+	    if (strlen($title)>25){
+            	$title = mb_substr($title,0,25,"utf-8") . '...';
+            }
             // 如下有两个推送模版，一个简单一个高级，可以互相切换使用。
 
                 if ($config["type"]=="SIMPLE") {
@@ -279,9 +285,15 @@ class Getui
     public static function IGtNotificationTemplate($data,$config)
     {
         $body = empty($config["body"]) ? "测试内容" : $config["body"];
+	if (strlen($body)>75){
+            $body = mb_substr($body,0,75,"utf-8") . '...';
+        }
         $logo = empty($config["logo"]) ? "" : $config["logo"];
         $logourl = empty($config["logourl"]) ? "simple" : $config["logourl"];
         $title = empty($config["title"]) ? "测试标题" : $config["title"];
+	if (strlen($title)>25){
+            $title = mb_substr($title,0,25,"utf-8") . '...';
+        }
         $url = empty($config["url"]) ? "" : $config["url"];
         // 数据
         $template = new \IGtNotificationTemplate();
