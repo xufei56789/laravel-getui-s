@@ -75,8 +75,8 @@ class Getui
 
     // 单一透传消息
     public static function pushMessageToSingle($template,$config,$data,$CID,$apnConf = []){
-	$config['title'] = preg_replace("[\r\n]", '', trim($config['title']));
-	$config['body'] = preg_replace("[\r\n]", '', trim($config['body']));
+	$config['title'] = preg_replace("[\r\n]", ' ', trim($config['title']));
+	$config['body'] = preg_replace("[\r\n]", ' ', trim($config['body']));
 	if (strlen($config['title']) > 25){
             $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
         }    
@@ -127,8 +127,8 @@ class Getui
 
     // 列表推送
     public static function pushMessageToList($template,$config,$data,$CID,$apnConf = []){
-	$config['title'] = preg_replace("[\r\n]", '', trim($config['title']));
-	$config['body'] = preg_replace("[\r\n]", '', trim($config['body']));
+	$config['title'] = preg_replace("[\r\n]", ' ', trim($config['title']));
+	$config['body'] = preg_replace("[\r\n]", ' ', trim($config['body']));
 	if (strlen($config['title']) > 25){
             $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
         }    
