@@ -75,6 +75,13 @@ class Getui
 
     // 单一透传消息
     public static function pushMessageToSingle($template,$config,$data,$CID,$apnConf = []){
+	if (strlen($config['title']) > 25){
+            $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
+        }    
+	if (strlen($config['body']) > 75){
+            $config['body'] = mb_substr($config['body'],0,75,"utf-8") . '...';
+        }  
+	    
         $igt = self::IGtPush();
         // 类型参数
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
@@ -118,6 +125,12 @@ class Getui
 
     // 列表推送
     public static function pushMessageToList($template,$config,$data,$CID,$apnConf = []){
+	if (strlen($config['title']) > 25){
+            $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
+        }    
+	if (strlen($config['body']) > 75){
+            $config['body'] = mb_substr($config['body'],0,75,"utf-8") . '...';
+        }  
         $igt = self::IGtPush();
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
         switch ($template) {
