@@ -75,11 +75,13 @@ class Getui
 
     // 单一透传消息
     public static function pushMessageToSingle($template,$config,$data,$CID,$apnConf = []){
+	$config['title'] = str_replace(PHP_EOL, '', trim($config['title']));
+	$config['body']  = str_replace(PHP_EOL, '', trim($config['body'])); 
 	if (strlen($config['title']) > 25){
             $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
         }    
-	if (strlen($config['body']) > 75){
-            $config['body'] = mb_substr($config['body'],0,75,"utf-8") . '...';
+	if (strlen($config['body']) > 70){
+            $config['body'] = mb_substr($config['body'],0,70,"utf-8") . '...';
         }  
 	    
         $igt = self::IGtPush();
@@ -125,11 +127,13 @@ class Getui
 
     // 列表推送
     public static function pushMessageToList($template,$config,$data,$CID,$apnConf = []){
+	$config['title'] = str_replace(PHP_EOL, '', trim($config['title']));
+	$config['body']  = str_replace(PHP_EOL, '', trim($config['body'])); 
 	if (strlen($config['title']) > 25){
             $config['title'] = mb_substr($config['title'],0,25,"utf-8") . '...';
         }    
-	if (strlen($config['body']) > 75){
-            $config['body'] = mb_substr($config['body'],0,75,"utf-8") . '...';
+	if (strlen($config['body']) > 70){
+            $config['body'] = mb_substr($config['body'],0,70,"utf-8") . '...';
         }  
         $igt = self::IGtPush();
         // 4.NotyPopLoadTemplate：通知弹框下载功能模板
